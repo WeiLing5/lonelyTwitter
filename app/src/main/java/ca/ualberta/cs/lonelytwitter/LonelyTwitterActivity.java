@@ -14,6 +14,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.concurrent.ExecutionException;
 
 public class LonelyTwitterActivity extends Activity {
@@ -68,6 +70,12 @@ public class LonelyTwitterActivity extends Activity {
 
                 latestTweet.addThumbnail(thumbnail);
 
+                Collections.sort(tweets, new Comparator<Tweet>() {
+                    public int compare(Tweet lhs, Tweet rhs) {
+                        return rhs.getDate().compareTo(lhs.getDate());
+                    }
+                });
+
                 adapter.notifyDataSetChanged();
 
                 // Add the tweet to Elasticsearch
@@ -89,11 +97,16 @@ public class LonelyTwitterActivity extends Activity {
 
         // Get the latest tweets from Elasticsearch
         ElasticsearchTweetController.GetTweetsTask getTweetsTask = new ElasticsearchTweetController.GetTweetsTask();
-//        getTweetsTask.execute("test");
+        //getTweetsTask.execute("test");
         getTweetsTask.execute("");
         try {
             tweets = new ArrayList<Tweet>();
             tweets.addAll(getTweetsTask.get());
+            Collections.sort(tweets, new Comparator<Tweet>() {
+                public int compare(Tweet lhs, Tweet rhs) {
+                    return rhs.getDate().compareTo(lhs.getDate());
+                }
+            });
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
