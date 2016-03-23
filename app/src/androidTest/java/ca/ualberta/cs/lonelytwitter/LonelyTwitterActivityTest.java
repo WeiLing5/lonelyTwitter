@@ -1,11 +1,13 @@
 package ca.ualberta.cs.lonelytwitter;
 
-import android.app.Activity;
+// import not used
+//import android.app.Activity;
 import android.test.ActivityInstrumentationTestCase2;
 
 /**
  * Created by wz on 14/09/15.
  */
+@SuppressWarnings("unchecked")
 public class LonelyTwitterActivityTest extends ActivityInstrumentationTestCase2 {
 
     public LonelyTwitterActivityTest() {
@@ -13,7 +15,8 @@ public class LonelyTwitterActivityTest extends ActivityInstrumentationTestCase2 
     }
 
     public void testStart() throws Exception {
-        Activity activity = getActivity();
+        // Activity not used
+        //Activity activity = getActivity();
 
     }
 }

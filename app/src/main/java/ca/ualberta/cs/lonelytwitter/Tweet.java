@@ -4,7 +4,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
 
-import com.google.gson.Gson;
+// Dont need since not using gson.
+// import com.google.gson.Gson;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Date;
@@ -15,9 +16,10 @@ public abstract class Tweet {
     @JestId
     protected String id;
 
-    public String getId() {
-        return id;
-    }
+    // Not used
+    //public String getId() {
+    //    return id;
+    //}
 
     public void setId(String id) {
         this.id = id;
@@ -29,11 +31,12 @@ public abstract class Tweet {
     protected transient Bitmap thumbnail;
     protected String thumbnailBase64;
 
-    public Tweet(Date date, String message, Bitmap thumbnail) {
-        this.date = date;
-        this.message = message;
-        this.thumbnail = thumbnail;
-    }
+    // Not used
+    //public Tweet(Date date, String message, Bitmap thumbnail) {
+    //    this.date = date;
+    //    this.message = message;
+    //    this.thumbnail = thumbnail;
+    //}
 
     public Tweet(Date date, String message) {
         this.date = date;
@@ -65,7 +68,7 @@ public abstract class Tweet {
     }
 
     //@Override
-    public abstract Boolean isImportant();
+    abstract Boolean isImportant();
 
     @Override
     public String toString() {
@@ -85,9 +88,10 @@ public abstract class Tweet {
         return this.date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+    //Not used
+    //public void setDate(Date date) {
+    //    this.date = date;
+    //}
 
     public String getMessage() {
         return this.message;

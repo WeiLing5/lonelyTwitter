@@ -105,6 +105,7 @@ public class LonelyTwitterActivity extends Activity {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+        numImportant = myTweets.countImportant();
 
         //Count important tweets
         numImportant = 0;

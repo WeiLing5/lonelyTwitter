@@ -45,7 +45,7 @@ public class ElasticsearchTweetController {
 
             /* NEW! */
             String search_string;
-            if(params[0] == "") {
+             if(params[0] == "") {
                 search_string = "{\"from\":0,\"size\":10000, \"sort\": {\"date\": {\"order\": \"desc\"}}}";
             } else {
                 // The following gets the top 10000 tweets matching the string passed in
